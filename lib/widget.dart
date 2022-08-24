@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 typedef BackContext<T> = Map<String, bool Function()>;
 
 class BackButtonProviderDelegate<T> {
-  BackButtonProviderDelegate(this.listeners);
+  BackButtonProviderDelegate(this.context);
 
-  final BackContext<T> listeners;
+  final BackContext<T> context;
   void Function(bool)? defaultAction;
 
   void backPressed(T? state) {
     var action = defaultAction;
     if (state != null) {
-      var listener = listeners[state];
+      var listener = context[state];
       if (listener != null) {
         if (!listener() && action != null) {
           action(true);

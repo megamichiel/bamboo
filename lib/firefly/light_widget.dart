@@ -95,7 +95,7 @@ class _LightState extends State<LightWidget> {
         if (!_loading)
           Column(
             children: [
-              ColorWidget(widget.backProvider.listeners,
+              ColorWidget(widget.backProvider.context,
                   "light:${widget.light.name}", widget.light, _connection),
               Card(
                 child: BrightnessWidget(widget.light, _connection),
